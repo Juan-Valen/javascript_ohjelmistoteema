@@ -1,1 +1,1 @@
-# javascript_ohjelmistoteema
+# Javascript Ohjelmistoteema
