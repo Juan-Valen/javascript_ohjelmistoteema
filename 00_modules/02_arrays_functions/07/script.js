@@ -1,26 +1,33 @@
+// Modify the function above so that it gets the number of sides on the dice as a parameter.
+// With the modified function you can for example roll a 21-sided role-playing dice.
+// The difference to the last exercise is that the dice rolling in the main program continues until the program gets the maximum number on the dice,
+// which is asked from the user at the beginning.
 function getRandomInt(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
-const dice_throw = confirm('Do you want to throw dices?');
-// If the user selects OK, the program asks for the number and
-let result = '';
-if (dice_throw) {
-    //     First, program asks the user for the number of dice rolls.
-    const n = parseInt(prompt('Provide the number of dice to throw.'));
-    if (Math.sign(n) != -1) {
-        let sum = 0
-        for (const i of Array(n)) {
-            nt = getRandomInt(6)
-            sum += nt
-            console.log("Dice result: " + nt)
-        }
-        result = '<strong>Dice sum: </strong> ' + sum + '.';
-    } else {
-        result = 'Causality had an error. The luck of every has been reveced!';
+
+
+
+
+
+
+
+
+
+
+const check = confirm('Do you want to continue?');
+var result = '<ul>'
+if (check) {
+    var max = parseInt(prompt("Max number of faces on the dice:"));
+    var dice = getRandomInt(max)
+
+    while (dice != max) {
+        result += '<li>' + dice.toString() + '</li>'
+        dice = getRandomInt(max)
     }
-} else {
-    result = 'The dice were not thrown'
 }
-//     Print the sum of the results in the console or in the HTML document.
-document.getElementById("result").innerHTML = result;
+result += '</ul>'
+document.getElementById("result").outerHTML = result;
+
+

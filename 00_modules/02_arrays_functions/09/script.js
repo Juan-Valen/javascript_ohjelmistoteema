@@ -1,6 +1,26 @@
-// Write a program that asks the user for an integer and tells if the number is a prime number. (2p)
+// Write a function called even(), which receives an array containing numbers as a parameter.
+// The function returns a second (usually smaller) array which has the even numbers of the original array.
+// The function must not make changes to the original table. (3p)
 
-//     Prime numbers are numbers that are only divisible by 1 and itself.
-//     For example, number 13 is a prime number as it can only be divided by 1 or 13 so that the result is an integer.
-//     On the other hand, number 21 for example is not a prime number as it can be also be divided by numbers 3 and 7.
-//     Print the result on the HTML document.
+//     Example: In a three-item array, there are items 2, 7 and 4. The function returns a two-item array with items 2 and 4.
+//     Print both the original array and the new array to the console in the main program after you have called the function.
+//     You can hard code the array, no need for prompt().
+
+const even = numbers => {
+    var e = [];
+    numbers.forEach((v) => {
+        if (v % 2 == 0) {
+            e.push(v)
+        }
+    });
+    return e;
+};
+
+
+
+
+
+var n = [2,7,4,8,9,15,65,222,315]
+
+console.log(n)
+console.log(even(n))

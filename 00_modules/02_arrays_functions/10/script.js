@@ -1,11 +1,72 @@
-// Make a program that asks the user for the number of dice and the sum of the eye numbers of interest to the user. The purpose of your program is now to find out with what probability the number of dice given by the user produces the sum of the number of eyes given by the user. For example, if the user enters 3 as the number of dice and 17 as the sum of the eyes, the program calculates the probability that the sum of the three dice's eye numbers is 17. (5p)
+// Write a voting program as described below for small-scale meeting use. (8p)
 
-//     Solve the problem by simulating: Have the program roll a given number of dice in a for-loop (e.g. 10,000 times) and calculate what proportion of the repetitions produced the sum of eye numbers of interest to the user.
-//     Print the result on the HTML document:
 
-// Probability to get sum 7 with 2 dice is 15.64%
 
-//     you can limit the number of decimals with toFixed()
-//     test values:
-//         2 dice, sum 7, probability is about 15-17%
-//         3 dice, sum 15, probability is about 5%
+// [
+    //     {
+        //         name: 'ellie',
+        //         votes: 0,
+        //     },
+        //     {
+            //         name: 'frank',
+    //         votes: 0,
+    //     },
+    //     {
+//         name: 'pamela',
+//         votes: 0,
+//     },
+// ]
+
+
+// The winner is pamela with 3 votes.
+// results:
+// pamela: 3 votes
+// frank: 1 votes
+// ellie: 1 votes
+
+//     Some help:
+
+// // You need to compare votes so console log a and b to see how to get the correct property.
+// someArray.sort((a, b) => {
+    //    console.log(a, b);
+    //    return b - a;
+    // });
+    
+    
+const check = confirm('Do you want to continue?');
+if (check) {
+    //     The program asks for the number of candidates.
+    var candidate_qty = prompt("How many candidates are there?")
+    var candidate = []
+    //     Then the program asks for the names of the candidates: 'Name for candidate 1
+    while (candidate.length < candidate_qty) {
+        //     Store the candidates' names and initial vote count in objects like this:
+        var c = {
+            name: prompt("Name of candidate " + (candidate.length + 1)),
+            votes: 0
+        }
+        candidate.push(c)
+    }
+
+    //     The program asks for the number of voters.
+    var voter_qty = prompt("How many voters are there?")
+    //     The program asks each voter in turn who they will vote for. 
+    for (i = 1; i <= voter_qty; i++) {
+        // Voter shoud enter candidate name.
+        var vote_to = prompt("Name of candidate you are voting for:");
+        if (vote_to == null || !candidate.some((v)=>v.name==vote_to)) {
+            continue
+        };
+        candidate[candidate.findIndex((v) => v.name == vote_to)].votes += 1;
+        // If the voter enters an empty value instead of the voting number,
+        // it will be interpreted as an empty vote.
+    }
+    //     The program announces the name of the winner and the results by printing it to the console:
+    console.log(`
+    results:
+    `);
+    candidate.sort((a,b)=>b.votes-a.votes);
+    candidate.forEach(v=>{
+        console.log(`${v.name}: ${v.votes} votes`);
+    })
+}
