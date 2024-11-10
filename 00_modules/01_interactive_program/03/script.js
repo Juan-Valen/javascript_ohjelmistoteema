@@ -1,6 +1,6 @@
-const n1 = prompt("What is your name?");
-const n2 = prompt("What is your name?");
-const n3 = prompt("What is your name?");
+const n1 = prompt("Provide a number:");
+const n2 = prompt("Provide a number:");
+const n3 = prompt("Provide a number:");
 const sum = parseInt(n1) + parseInt(n2)+ parseInt(n3)
 const prod = parseInt(n1)*parseInt(n2)*parseInt(n3)
 const avg = sum/3
